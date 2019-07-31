@@ -1,17 +1,30 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ModalHolder :steps="steps" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ModalHolder from './components/ModalHolder.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    ModalHolder,
+  },
+  data() {
+    return {
+      steps: [{
+        title: 'Details',
+        component: 'ModalForm'
+      },
+      {
+        title: 'Submit',
+        component: 'Submit',
+      }],
+      currentStep: 0,
+    }
   }
 }
 </script>
